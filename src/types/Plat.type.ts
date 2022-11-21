@@ -1,9 +1,9 @@
-import {TAliment} from "./Aliment.type";
+import {Aliment} from "./Aliment.type";
 
-export class TPlat {
+export class Plat {
     _id: string
     nom: string
     type: string
-    aliments: TAliment[]
+    aliments: Aliment[]
     prix: number
 }

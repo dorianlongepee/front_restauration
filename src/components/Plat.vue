@@ -1,18 +1,22 @@
 <template>
   <div class="plat-card">
-    <h2>{{ name }}</h2>
-    <p>{{ type }} | {{ price }}€</p>
-    <div v-for="aliment in aliments"
-         class="aliment-badge"
-         :key="aliment._id"
-    >
-      {{ alimentsList(aliment) }}
+    <div class="image-card">
+    </div>
+    <div>
+      <h2>{{ name }}</h2>
+      <p class="price-card">{{ type }} - {{ price }}€</p>
+      <Aliment v-for="aliment in aliments"
+               :aliment="aliment"
+               class="aliment-badge"
+               :key="aliment._id"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
   import {defineComponent} from "vue";
+  import Aliment from "../components/Aliment"
 
   export default defineComponent ({
     name: "Plat",
@@ -34,10 +38,8 @@
         required: true
       },
     },
-    methods: {
-      alimentsList(aliment){
-        return aliment.quantite + ' x ' + aliment.nom
-      }
+    components:{
+      Aliment
     }
   })
 </script>
@@ -48,13 +50,31 @@
     padding: 12px;
     border-radius: 8px;
     cursor: pointer;
+    text-align: left;
+    display: flex;
   }
+
+  .plat-card .price-card,
+  .plat-card h2{
+    margin: .8rem .4rem ;
+  }
+
+  .image-card{
+    background-image: url("../assets/hamburger.png") ;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 5rem;
+    width: 5rem;
+    align-self: center;
+  }
+
   .aliment-badge{
     display: inline-block;
     background: linear-gradient(45deg, #2ECC71, #27AE60);
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin: 8px 3px ;
+    padding: .8rem 1.2rem;
+    border-radius: .6rem;
+    margin: .4rem ;
     color: #fafafa;
     font-weight: bold;
     line-height: calc(1rem - 1px);

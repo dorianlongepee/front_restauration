@@ -1,25 +1,24 @@
 <template>
-  <div class="aliment-card">
-    <h2>{{name}}</h2>
-    <p>{{type}}</p>
-    <b>{{quantity}}</b>
-  </div>
+<p>{{ aliment.quantite + " x " + aliment.nom }}</p>
 </template>
 
-
-<script type="ts">
-  import {defineComponent} from "vue";
-
-  export default defineComponent({
-    name: "Aliment",
-    props: {
-        name: String,
-        type: String,
-        quantity: Number,
+<script>
+export default {
+  name: "Aliment",
+  data(){
+    return {
+       alimentObj : {}
     }
-  })
-</script>
+  },
+  props: {
+    aliment: {
+      type: Object,
+      required: true
+    }
+  }
 
+}
+</script>
 
 <style scoped>
 

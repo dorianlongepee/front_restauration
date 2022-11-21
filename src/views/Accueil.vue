@@ -26,13 +26,13 @@ export default {
       plats : []
     }
   },
-  components: {Plat},
+  components: { Plat },
   methods:{
     async getPlats(){
       this.plats = await PlatsApi.fetchPlats();
     }
   },
-  async mounted() {
+  async beforeMount() {
     await this.getPlats();
   }
 }
