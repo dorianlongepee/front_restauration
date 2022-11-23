@@ -1,5 +1,5 @@
 # WebApp de restauration w/ API RESTful
-J'aurais aimé un peu plus de temps afin d'ajouter certaines fonctionnalités étant donné que je suis arrivé plus tard que le reste de la promotion mais voici un état des lieux. 
+J'aurais aimé un peu plus de temps afin d'ajouter certaines fonctionnalités comme je suis arrivé plus tard que le reste de la promotion mais voici un état des lieux pour respecter la deadline 🙂 
 
 ## Fait
 - Affichage des plats et des aliments
@@ -34,7 +34,6 @@ Une fois le téléchargement terminé, lancer le front
 ```
 npm run serve
 ```
-
-
 ## Caveats
 L'application n'affichera rien si vous n'installez pas [le back](https://github.com/dorianlongepee/api_restauration)
+Une fois ces deux installations faites, l'application sera disponible [ici](http://localhost:8080)
