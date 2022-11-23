@@ -1,8 +1,9 @@
 <template>
   <div class="accueil">
-    <h1>Accueil</h1>
+    <v-container>
+    <h1 class="text-h2 font-weight-bold my-10">{{ mainTitle }}</h1>
 
-    <div class="container-plats">
+    <v-row>
       <Plat
           v-for="plat in plats"
           :key="plat._id"
@@ -10,8 +11,11 @@
           :type="plat.type"
           :aliments="plat.aliments"
           :price="plat.prix"
+          :image="plat.image"
+          :dispo="plat.disponible"
       />
-    </div>
+    </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -34,24 +38,12 @@ export default {
   },
   async beforeMount() {
     await this.getPlats();
+  },
+  computed:{
+    mainTitle(){
+      return this.$store.state.userLoggedin ? `👋🏼 On mange quoi, ${this.$store.state.user.prenom} ?` : "🤗 Bonjour toi"
+    }
   }
 }
 
 </script>
-
-<style scoped>
-
-.container-plats{
-  display: grid;
-  gap: 16px;
-  margin: auto;
-  max-width: 1920px;
-  align-self: center;
-}
-
-@media screen and (min-width:900px) {
-  .container-plats{
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-</style>

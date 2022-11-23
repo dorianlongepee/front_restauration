@@ -1,20 +1,20 @@
 import $axios from 'axios'
 
-export class UsersApi {
+const API_URL = 'http://localhost:3000/auth/';
 
-    static API_URL: string = "http://localhost:3000/auth/";
+export class UsersApi {
 
     static async login(user){
         try {
             return (await $axios
                 .post(
-                    this.API_URL + 'login',
+                    API_URL + 'login',
                     {
-                        mail: user.mail,
+                        mail: user.email,
                         password: user.password
                     }
                 ).then(response => {
-                    if(response.data.accessToken){
+                    if(response.data){
                         localStorage.setItem('user', JSON.stringify(response.data));
                     }
 
@@ -34,19 +34,36 @@ export class UsersApi {
         }
     }
 
-    static async signup(user){
-        try {
-            return (await $axios
+    static signup(user){
+        return $axios
                 .post(
-                    this.API_URL + 'signup',
+                    API_URL + 'signup',
                     {
-                        mail: user.mail,
-                        password: user.password
+                        mail: user.email,
+                        password: user.password,
+                        prenom: user.prenom,
+                        nom: user.nom,
+                        admin: user.admin
                     }
                 )
-            )
-        } catch (error) {
-            console.log(error);
-        }
+            .then(function(response){
+                return response
+            })
+            .catch(function (error){
+                if (error.response) {
+                    // The request was made and the server responded with a status code
+                    // that falls out of the range of 2xx
+                    console.log(error.response)
+                    return error.response
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                    // http.ClientRequest in node.js
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log('Error', error.message);
+                }
+            })
     }
 }
