@@ -1,24 +1,40 @@
-# client
+# WebApp de restauration w/ API RESTful
+J'aurais aimé un peu plus de temps afin d'ajouter certaines fonctionnalités étant donné que je suis arrivé plus tard que le reste de la promotion mais voici un état des lieux. 
 
-## Project setup
+## Fait
+- Affichage des plats et des aliments
+- Ajout à un panier
+- Création de compte
+- Login
+- + le back développé (sauf commandes)
+
+## À faire
+- Stockage cookie/localStorage utilisateur
+- CRUD graphique pour les admins
+- Panier + commande
+
+# Lancer le projet
+Commencer par cloner le repository
+
 ```
+git clone git@github.com:dorianlongepee/front_restauration.git // prefered
+// OR
+git clone https://github.com/dorianlongepee/front_restauration.git
+```
+
+Se positionner dans le dossier et lancer l'installation des dépendances
+
+```
+cd front_restauration
 npm install
 ```
 
-### Compiles and hot-reloads for development
+Une fois le téléchargement terminé, lancer le front
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Caveats
+L'application n'affichera rien si vous n'installez pas [le back](https://github.com/dorianlongepee/api_restauration)
