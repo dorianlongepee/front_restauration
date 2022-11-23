@@ -6,7 +6,7 @@ J'aurais aimé un peu plus de temps afin d'ajouter certaines fonctionnalités é
 - Ajout à un panier
 - Création de compte
 - Login
-- + le back développé (sauf commandes)
+- le back développé (sauf commandes)
 
 ## À faire
 - Stockage cookie/localStorage utilisateur
@@ -17,7 +17,7 @@ J'aurais aimé un peu plus de temps afin d'ajouter certaines fonctionnalités é
 Commencer par cloner le repository
 
 ```
-git clone git@github.com:dorianlongepee/front_restauration.git // prefered
+git clone git@github.com:dorianlongepee/front_restauration.git
 // OR
 git clone https://github.com/dorianlongepee/front_restauration.git
 ```
